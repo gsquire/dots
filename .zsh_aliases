@@ -1,0 +1,7 @@
+alias c='clear'
+alias cln='rm -f $HISTFILE'
+alias upd='brew update && brew upgrade'
+alias j='jump'
+
+# Used for LastPass password copying to the clipboard.
+alias pass='lpass show --password -c'
