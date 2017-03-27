@@ -21,6 +21,12 @@ execute pathogen#infect()
 
 set nocompatible
 
+set ttyfast
+
+set lazyredraw
+
+set cursorline
+
 set encoding=utf-8
 
 set backspace=2
