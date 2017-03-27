@@ -21,6 +21,9 @@ execute pathogen#infect()
 
 set nocompatible
 
+set rnu
+
+" The following three configurations are for faster switching.
 set ttyfast
 
 set lazyredraw
