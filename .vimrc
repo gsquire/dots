@@ -80,3 +80,6 @@ set laststatus=2
 
 " switch between paste/no paste mode easier.
 set pastetoggle=<F2>
+
+" rust format on save.
+let g:rustfmt_autosave = 1
