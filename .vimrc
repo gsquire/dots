@@ -8,7 +8,7 @@ syntax enable
 
 syntax on
 
-colorscheme mod8
+colorscheme challenger_deep
 
 " I think this is the secret to 256 colors in Vim 8. Found on quantum GitHub page.
 if has("termguicolors")
@@ -83,3 +83,5 @@ set pastetoggle=<F2>
 
 " rust format on save.
 let g:rustfmt_autosave = 1
+
+let g:challenger_deep_termcolors = 1
