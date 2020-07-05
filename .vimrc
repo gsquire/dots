@@ -8,8 +8,6 @@ syntax enable
 
 syntax on
 
-colorscheme challenger_deep
-
 " I think this is the secret to 256 colors in Vim 8. Found on quantum GitHub page.
 if has("termguicolors")
     set termguicolors
@@ -17,7 +15,31 @@ endif
 
 filetype indent plugin on
 
-execute pathogen#infect()
+" Old pathogen starting point.
+call plug#begin()
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+Plug 'vim-syntastic/syntastic'
+
+Plug 'vim-airline/vim-airline'
+
+Plug 'ziglang/zig.vim'
+
+" Color schemes below here.
+Plug 'nanotech/jellybeans.vim'
+
+" https://gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim/
+call plug#end()
+
+colorscheme jellybeans
 
 set nocompatible
 
@@ -82,6 +104,9 @@ set laststatus=2
 set pastetoggle=<F2>
 
 " rust format on save.
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave=1
 
-let g:challenger_deep_termcolors = 1
+" Rust analyzer.
+let g:LanguageClient_serverCommands = {
+\ 'rust': ['rust-analyzer'],
+\ }
