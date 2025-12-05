@@ -18,28 +18,23 @@ filetype indent plugin on
 " Old pathogen starting point.
 call plug#begin()
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
 Plug 'rust-lang/rust.vim'
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-Plug 'vim-syntastic/syntastic'
 
 Plug 'vim-airline/vim-airline'
 
 Plug 'ziglang/zig.vim'
 
+Plug 'dense-analysis/ale'
+
 " Color schemes below here.
-Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
 
 " https://gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim/
 call plug#end()
 
-colorscheme jellybeans
+colorscheme gruvbox
 
 set nocompatible
 
@@ -79,8 +74,14 @@ set lbr
 " set maximum column width.
 set colorcolumn=100
 
+" Do not adjust the current newline style.
+set nofixendofline
+
 " remember where i was in the files i have been editing.
-set viminfo='10,\"100,:20,%,n~/.viminfo
+" Edited 06/12/2025 so neovim doesn't overwrite.
+if !has('nvim')
+    set viminfo='10,\"100,:20,%,n~/.viminfo
+endif
 
 function! ResCur()
     if line("'\"") <= line("$")
@@ -101,12 +102,11 @@ let g:go_fmt_command="goimports"
 set laststatus=2
 
 " switch between paste/no paste mode easier.
-set pastetoggle=<F2>
+" Not supported in neovim. 06/12/2025
+" set pastetoggle=<F2>
 
 " rust format on save.
 let g:rustfmt_autosave=1
 
 " Rust analyzer.
-let g:LanguageClient_serverCommands = {
-\ 'rust': ['rust-analyzer'],
-\ }
+let g:ale_linters = {'rust': ['analyzer']}
