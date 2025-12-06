@@ -31,10 +31,12 @@ Plug 'dense-analysis/ale'
 " Color schemes below here.
 Plug 'morhetz/gruvbox'
 
+Plug 'sainnhe/everforest'
+
 " https://gregjs.com/vim/2016/configuring-the-deoplete-asynchronous-keyword-completion-plugin-with-tern-for-vim/
 call plug#end()
 
-colorscheme gruvbox
+colorscheme everforest
 
 set nocompatible
 
