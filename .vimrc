@@ -28,6 +28,9 @@ Plug 'ziglang/zig.vim'
 
 Plug 'dense-analysis/ale'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 " Color schemes below here.
 Plug 'morhetz/gruvbox'
 
@@ -72,6 +75,23 @@ set si
 set hls
 
 set lbr
+
+" Set my leader key to be space.
+let mapleader = " "
+
+set spell
+set spelllang=en_us
+
+" Don't always ask to save a buffer when editing multiple files.
+set hidden
+
+set noswapfile
+
+" fzf.vim Buffers command via leader b.
+nnoremap <silent> <leader>b :Buffers<CR>
+
+" fzf.vim Rg command via leader r.
+nnoremap <silent> <leader>r :Rg<CR>
 
 " set maximum column width.
 set colorcolumn=100
